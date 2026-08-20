@@ -1,0 +1,7 @@
+---
+const { block } = Astro.props;
+---
+<blockquote class="border-l-4 border-accent pl-6 my-8">
+  <p class="font-body text-xl italic text-ink/70 leading-relaxed">{block.text}</p>
+  {block.attribution && <footer class="mt-3 font-ui text-sm text-ink/50">— {block.attribution}</footer>}
+</blockquote>

@@ -1,0 +1,31 @@
+---
+import Heading from './blocks/Heading.astro';
+import Text from './blocks/Text.astro';
+import Article from './blocks/Article.astro';
+import Image from './blocks/Image.astro';
+import Gallery from './blocks/Gallery.astro';
+import Video from './blocks/Video.astro';
+import Chart from './blocks/Chart.astro';
+import Quote from './blocks/Quote.astro';
+import Cta from './blocks/Cta.astro';
+import Divider from './blocks/Divider.astro';
+
+const { blocks } = Astro.props;
+
+---
+
+{blocks.map((b) => {
+  switch(b.type){
+    case 'heading': return <Heading block={b} />;
+    case 'text': return <Text block={b} />;
+    case 'article': return <Article block={b} />;
+    case 'image': return <Image block={b} />;
+    case 'gallery': return <Gallery block={b} />;
+    case 'video': return <Video block={b} />;
+    case 'chart': return <Chart block={b} />;
+    case 'quote': return <Quote block={b} />;
+    case 'cta': return <Cta block={b} />;
+    case 'divider': return <Divider />;
+    default: return <div>Unknown block: {b.type}</div>;
+  }
+})}

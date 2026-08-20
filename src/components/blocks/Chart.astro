@@ -1,0 +1,46 @@
+---
+const { block } = Astro.props;
+
+function barChartSvg(data) {
+  const max = Math.max(...data.map(d => d.value));
+  const w = 600; const h = 180; const gap = 16;
+  const barW = (w - (data.length - 1) * gap) / data.length;
+  const bars = data.map((d, i) => {
+    const x = i * (barW + gap);
+    const height = (d.value / max) * (h - 30);
+    const y = h - height;
+    return `<rect x="${x}" y="${y}" width="${barW}" height="${height}" rx="6" fill="#bd5b34" opacity="${0.7 + (i * 0.1)}"></rect>
+            <text x="${x + barW / 2}" y="${h + 16}" text-anchor="middle" font-size="11" font-family="Space Grotesk" fill="#201b16" opacity="0.5">${d.label}</text>
+            <text x="${x + barW / 2}" y="${y - 8}" text-anchor="middle" font-size="12" font-family="Space Grotesk" fill="#bd5b34" font-weight="600">${d.value}</text>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${w} ${h + 25}" width="100%" preserveAspectRatio="xMidYMid meet">${bars}</svg>`;
+}
+
+function pieChartSvg(data) {
+  const total = data.reduce((s, d) => s + d.value, 0);
+  let angle = -Math.PI / 2;
+  const r = 80; const cx = 100; const cy = 100;
+  const colors = ['#bd5b34', '#d4845f', '#e8a98a', '#f0c4b0', '#c97a5c'];
+  const slices = data.map((d, i) => {
+    const frac = d.value / total; const a = frac * 2 * Math.PI;
+    const x1 = cx + r * Math.cos(angle); const y1 = cy + r * Math.sin(angle);
+    angle += a;
+    const x2 = cx + r * Math.cos(angle); const y2 = cy + r * Math.sin(angle);
+    const large = a > Math.PI ? 1 : 0;
+    return `<path d="M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} Z" fill="${colors[i % colors.length]}"></path>`;
+  }).join('');
+  return `<svg viewBox="0 0 200 200" width="180" height="180">${slices}</svg>`;
+}
+---
+<div class="my-8 card p-6">
+  {block.title && <h4 class="font-ui text-sm font-medium text-ink/70 uppercase tracking-wide mb-4">{block.title}</h4>}
+  {block.chartType === 'bar' && <div set:html={barChartSvg(block.data)} />}
+  {block.chartType === 'pie' && <div class="flex justify-center" set:html={pieChartSvg(block.data)} />}
+  {block.chartType === 'stat' && (
+    <div class="text-center py-4">
+      <div class="font-body text-5xl font-bold text-accent">{block.data[0]?.value ?? ''}</div>
+      <div class="font-ui text-sm text-ink/50 mt-2">{block.data[0]?.label ?? ''}</div>
+    </div>
+  )}
+  {block.chartType === 'line' && <div set:html={barChartSvg(block.data)} />}
+</div>

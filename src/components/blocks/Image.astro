@@ -1,0 +1,9 @@
+---
+const { block } = Astro.props;
+const src = block.image ?? block.url;
+const alignClass = block.align === 'center' ? 'mx-auto' : block.align === 'right' ? 'ml-auto' : '';
+---
+<figure class={`my-8 ${alignClass}`}>
+  <img src={src} alt={block.alt ?? block.caption ?? ''} class="rounded-xl shadow-md w-full" />
+  {block.caption && <figcaption class="text-sm text-ink/50 mt-3 font-ui">{block.caption}</figcaption>}
+</figure>

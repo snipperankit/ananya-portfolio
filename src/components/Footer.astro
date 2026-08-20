@@ -1,0 +1,12 @@
+---
+import { SITE } from "../consts";
+const year = new Date().getFullYear();
+---
+<footer class="bg-ink dark:bg-card-dark border-t border-ink dark:border-ink-dark/10 mt-20">
+  <div class="wrap py-14 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="font-ui text-[16px] text-white/70 dark:text-ink-dark/70">© {year} {SITE.name} · {SITE.role}</div>
+    <div class="flex items-center gap-6 font-ui text-[16px]">
+      {SITE.socials.map((s) => <a href={s.href} class="text-white/60 dark:text-ink-dark/60 hover:text-accent-dark transition-colors duration-150">{s.label}</a>)}
+    </div>
+  </div>
+</footer>

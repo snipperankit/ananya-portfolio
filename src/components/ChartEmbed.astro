@@ -1,0 +1,26 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+}
+const { src, title = "Chart" } = Astro.props;
+---
+<figure class="chart-embed">
+  <iframe
+    src={src}
+    title={title}
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    style="width:100%;border:0;min-height:420px;"
+  ></iframe>
+</figure>
+<style>
+  .chart-embed {
+    margin: 2rem 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+</style>

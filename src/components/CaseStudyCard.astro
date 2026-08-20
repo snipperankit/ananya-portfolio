@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  entry: CollectionEntry<"caseStudies">;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+---
+<a class="card" href={`/work/${entry.id}`}>
+  <p class="eyebrow">{d.role} · {d.client}</p>
+  <h3>{d.title}</h3>
+  <p>{d.summary}</p>
+  {d.outcomes.length > 0 && <div class="metric">{d.outcomes[0]}</div>}
+</a>

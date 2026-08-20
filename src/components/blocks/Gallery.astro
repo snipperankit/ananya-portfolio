@@ -1,0 +1,9 @@
+---
+const { block } = Astro.props;
+---
+<div class="my-8 grid grid-cols-2 md:grid-cols-3 gap-3">
+  {block.images.map(img => (
+    <img src={img.url} alt={img.alt ?? ''} class="rounded-xl object-cover w-full h-48 shadow-sm" />
+  ))}
+</div>
+{block.caption && <p class="text-sm text-ink/50 font-ui -mt-4 mb-6">{block.caption}</p>}

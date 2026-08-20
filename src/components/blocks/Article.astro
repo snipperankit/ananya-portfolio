@@ -1,0 +1,8 @@
+---
+const { block } = Astro.props;
+const alignClass = block.align === 'center' ? 'text-center' : block.align === 'right' ? 'text-right' : '';
+---
+<div class={`card p-6 my-6 ${alignClass}`}>
+  {block.title && <h3 class="font-display text-xl font-semibold mb-2">{block.title}</h3>}
+  {block.excerpt && <p class="font-body text-[.98rem] text-ink/60 dark:text-ink-dark/65 leading-relaxed">{block.excerpt}</p>}
+</div>

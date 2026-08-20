@@ -1,0 +1,23 @@
+---
+const { block } = Astro.props;
+const alignClass = block.align === 'center' ? 'mx-auto' : block.align === 'right' ? 'ml-auto' : '';
+
+function embedUrl(url){
+  // simple transform for youtube/vimeo embed
+  if(url.includes('youtube') || url.includes('youtu.be')){
+    const id = url.split('v=')[1] ?? url.split('/').pop();
+    return `https://www.youtube.com/embed/${id}`;
+  }
+  if(url.includes('vimeo')){
+    const id = url.split('/').pop();
+    return `https://player.vimeo.com/video/${id}`;
+  }
+  return url;
+}
+---
+<div class={`my-6 ${alignClass}`}>
+  <div class="aspect-video">
+    <iframe src={embedUrl(block.url)} frameborder="0" allowfullscreen class="w-full h-full rounded-md"></iframe>
+  </div>
+  {block.caption && <div class="text-sm text-ink/70 mt-2">{block.caption}</div>}
+</div>
