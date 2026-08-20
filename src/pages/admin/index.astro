@@ -116,10 +116,11 @@ const configYaml = fs.readFileSync(configPath, 'utf-8');
     </script>
     <script is:inline define:vars={{ configYaml }}>
       var parsed = jsyaml.load(configYaml);
-      // Force local proxy backend for dev
-      if (parsed.local_backend) {
+      // Use local proxy only when running on localhost
+      if (parsed.local_backend && window.location.hostname === 'localhost') {
         parsed.backend = { name: 'proxy', proxy_url: 'http://localhost:8081/api/v1' };
       }
+      delete parsed.local_backend;
       parsed.load_config_file = false;
       window.__registerBlocksPreview();
       window.CMS.init({ config: parsed });
