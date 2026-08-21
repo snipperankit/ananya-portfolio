@@ -2,7 +2,6 @@ local_backend: true
 
 backend:
   name: git-gateway
-  repo: snipperankit/ananya-portfolio
   branch: main
 
 media_folder: "public/uploads"
