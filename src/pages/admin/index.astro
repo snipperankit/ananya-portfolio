@@ -12,8 +12,9 @@ const configYaml = fs.readFileSync(configPath, 'utf-8');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Content Manager</title>
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>   ← ADD THIS LINE
     <script is:inline src="https://unpkg.com/js-yaml@4/dist/js-yaml.min.js"></script>
-  </head>
+</head>
   <body>
     <script is:inline define:vars={{ configYaml }}>
       window.CMS_MANUAL_INIT = true;
