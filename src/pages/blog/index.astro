@@ -1,37 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const modules = import.meta.glob('/src/content/blog/*.mdx', { eager: true });
-const posts = Object.entries(modules).map(([path, mod]) => {
-  const file = path.split('/').pop();
-  const slug = file.replace('.mdx', '');
-  return { slug, ...(mod.frontmatter ?? {}), module: mod.default };
-}).filter(p => !p.draft).sort((a,b) => (a.date ?? '') < (b.date ?? '') ? 1 : -1);
+import CaseStudiesPage from '../../components/pages/CaseStudiesPage.astro';
 ---
 
-<Layout title="Work">
-  <section class="section">
-    <div class="wrap">
-      <div class="max-w-3xl mb-12">
-        <span class="eyebrow">Portfolio</span>
-        <h1 class="font-display text-[2.4rem] md:text-[3.25rem] font-extrabold leading-[1.05] tracking-[-0.03em] mb-4">Work &amp; case studies</h1>
-        <p class="font-body text-[1.15rem] text-ink/60 dark:text-ink-dark/65 leading-relaxed">Agile transformations, delivery improvements, and team coaching — each documented with the measurable outcome it produced.</p>
-      </div>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {posts.map(post => (
-          <a href={`/blog/${post.slug}`} class="group card p-6 md:p-8 flex flex-col justify-between">
-            <div>
-              {post.eyebrow && <span class="font-ui text-[11px] font-semibold text-accent dark:text-accent-dark uppercase tracking-[.12em]">{post.eyebrow}</span>}
-              <h2 class="font-display text-[1.25rem] font-semibold leading-snug mt-3 mb-3 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-200">{post.title}</h2>
-              <p class="font-body text-[.98rem] text-ink/60 dark:text-ink-dark/65 leading-relaxed line-clamp-3">{post.description ?? ''}</p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-ink/[.06] dark:border-ink-dark/[.08] flex items-center justify-between font-ui text-[12px] text-ink/40 dark:text-ink-dark/45">
-              <span>{post.date}</span>
-              <span class="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 text-accent dark:text-accent-dark">Read →</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout title="Case Studies">
+  <CaseStudiesPage lang="en" />
 </Layout>
+

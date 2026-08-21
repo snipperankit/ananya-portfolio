@@ -1,0 +1,86 @@
+---
+// Legal notice / Impressum (§ 5 TMG / § 18 MStV).
+import type { Lang } from "../../i18n";
+import { CONTACT } from "../../data/profile";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const c = lang === "de"
+  ? {
+      title: "Impressum",
+      accordingTo: "Angaben gemäß § 5 TMG",
+      contactTitle: "Kontakt",
+      responsibleTitle: "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+      liabilityContentTitle: "Haftung für Inhalte",
+      liabilityContent:
+        "Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieterin bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.",
+      liabilityLinksTitle: "Haftung für Links",
+      liabilityLinks:
+        "Dieses Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann für diese fremden Inhalte auch keine Gewähr übernommen werden. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.",
+      copyrightTitle: "Urheberrecht",
+      copyright:
+        "Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung.",
+      addressNote: "Vollständige Anschrift auf Anfrage.",
+    }
+  : {
+      title: "Legal Notice (Impressum)",
+      accordingTo: "Information in accordance with § 5 TMG (German Telemedia Act)",
+      contactTitle: "Contact",
+      responsibleTitle: "Responsible for content pursuant to § 18 (2) MStV",
+      liabilityContentTitle: "Liability for content",
+      liabilityContent:
+        "The contents of these pages were created with the greatest care. However, no guarantee can be given for the accuracy, completeness, or timeliness of the content. As a service provider, I am responsible for my own content on these pages in accordance with § 7 (1) TMG and general law.",
+      liabilityLinksTitle: "Liability for links",
+      liabilityLinks:
+        "This site contains links to external third-party websites over whose content I have no influence. Therefore, no liability can be assumed for such external content. The respective provider or operator of the linked pages is always responsible for their content.",
+      copyrightTitle: "Copyright",
+      copyright:
+        "The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of use beyond the limits of copyright law require written consent.",
+      addressNote: "Full postal address available upon request.",
+    };
+---
+<section class="section pt-32">
+  <div class="wrap read">
+    <h1 class="font-display font-normal text-[2.2rem] md:text-[2.8rem] leading-[1.1] tracking-[-0.018em] mb-10">{c.title}</h1>
+
+    <div class="space-y-8 font-body text-[1.02rem] leading-[1.75] text-ink/80 dark:text-ink-dark/80 max-w-[65ch]">
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.accordingTo}</h2>
+        <p>
+          Ananya Rao<br />
+          Ulm, {lang === "de" ? "Deutschland" : "Germany"}<br />
+          <em class="text-muted dark:text-muted-dark">{c.addressNote}</em>
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.contactTitle}</h2>
+        <p>
+          {lang === "de" ? "E-Mail" : "Email"}: <a href={`mailto:${CONTACT.email}`} class="underline decoration-ink/25 dark:decoration-ink-dark/25 underline-offset-2 hover:decoration-current">{CONTACT.email}</a><br />
+          LinkedIn: <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" class="underline decoration-ink/25 dark:decoration-ink-dark/25 underline-offset-2 hover:decoration-current">linkedin.com/in/ananyarao</a>
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.responsibleTitle}</h2>
+        <p>Ananya Rao, Ulm</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.liabilityContentTitle}</h2>
+        <p>{c.liabilityContent}</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.liabilityLinksTitle}</h2>
+        <p>{c.liabilityLinks}</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-[1.3rem] mb-2">{c.copyrightTitle}</h2>
+        <p>{c.copyright}</p>
+      </div>
+    </div>
+  </div>
+</section>

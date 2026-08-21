@@ -2,18 +2,21 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ContactToast from "../components/ContactToast.astro";
 import { SITE } from "../consts";
+import type { Lang } from "../i18n";
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, lang = "en" } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.role}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,12 +26,13 @@ const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Space+Grotesk:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-pagebg dark:bg-pagebg-dark text-ink dark:text-ink-dark font-ui antialiased transition-colors duration-300">
-    <Header />
+    <Header lang={lang} />
     <main><slot /></main>
-    <Footer />
+    <Footer lang={lang} />
+    <ContactToast lang={lang} />
     <script is:inline>
       (function() {
         const saved = localStorage.getItem('theme');

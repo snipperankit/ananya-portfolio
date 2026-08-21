@@ -1,0 +1,43 @@
+---
+// Insights listing — card view over the caseStudies collection.
+import type { Lang } from "../../i18n";
+import { t } from "../../i18n";
+import { getCollection } from "astro:content";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tr = t(lang).insights;
+
+const studies = (await getCollection("caseStudies", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const fmt = (d: Date) => d.toLocaleDateString(lang === "de" ? "de-DE" : "en-GB", { year: "numeric", month: "short" });
+---
+<section class="section pt-32">
+  <div class="wrap">
+    <div class="max-w-3xl mb-12">
+      <span class="eyebrow">{tr.eyebrow}</span>
+      <h1 class="font-display font-normal text-[2.2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em] mb-4">{tr.title}</h1>
+      <p class="font-body text-[1.05rem] text-muted dark:text-muted-dark leading-relaxed">{tr.intro}</p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      {studies.map((entry) => (
+        <article class="card flex flex-col p-8">
+          <div class="font-ui text-[10px] font-semibold uppercase tracking-[.2em] text-muted dark:text-muted-dark mb-4">{fmt(entry.data.date)} · {entry.data.role} · {entry.data.client}</div>
+          <h2 class="font-display font-normal text-[1.35rem] leading-[1.25] tracking-[-0.01em] mb-3">
+            <a href={`/work/${entry.id}`} class="hover:text-accent dark:hover:text-accent-dark transition-colors">{entry.data.title}</a>
+          </h2>
+          <p class="font-body text-[.95rem] text-muted dark:text-muted-dark leading-[1.6] mb-5">{entry.data.summary}</p>
+          {entry.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {entry.data.tags.map((s) => (
+                <span class="font-ui text-[10px] uppercase tracking-[.1em] border border-ink/20 dark:border-ink-dark/25 text-ink/70 dark:text-ink-dark/70 px-2.5 py-1">{s}</span>
+              ))}
+            </div>
+          )}
+          <a href={`/work/${entry.id}`} class="mt-auto inline-block self-start font-ui text-[11px] font-medium uppercase tracking-[.16em] border border-ink dark:border-ink-dark px-5 py-3 hover:bg-ink hover:text-pagebg dark:hover:bg-ink-dark dark:hover:text-pagebg-dark transition-colors">{tr.readMore}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

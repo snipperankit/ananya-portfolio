@@ -1,18 +1,18 @@
 // Site-wide settings. Edit these first — they drive the header, footer, and meta.
 export const SITE = {
   name: "Ananya Rao",
-  role: "Agile Coach & Scrum Master",
+  role: "Project Management Specialist · RTE · Scrum Master",
   tagline:
-    "I help product teams find a steady cadence — turning stalled delivery into measurable, repeatable results.",
+    "Steering large-scale international projects from predictable planning to value delivery.",
   description:
-    "Ananya Rao — Agile Coach and Scrum Master. Case studies in agile transformation, Scrum, and delivery.",
+    "Ananya Rao — Project Management Specialist, Scrum Master and Release Train Engineer. Case studies in scaled agile delivery.",
   nav: [
-    { label: "Work", href: "/blog" },
+    { label: "Case Studies", href: "/blog" },
+    { label: "Insights", href: "/work" },
     { label: "About", href: "/about" },
-    { label: "Resume", href: "/resume" },
   ],
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/ananyarao/" },
-    { label: "Email", href: "mailto:hello@example.com" },
+    { label: "Email", href: "mailto:ananyarao121996@gmail.com" },
   ],
 };

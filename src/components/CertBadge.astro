@@ -1,0 +1,42 @@
+---
+// Inline SVG badge symbols for certifications (no external brand assets).
+interface Props {
+  icon: "pmp" | "safe" | "capm" | "ai" | "fmea";
+  class?: string;
+}
+const { icon, class: className = "w-7 h-7" } = Astro.props;
+---
+{icon === "pmp" && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <circle cx="12" cy="9" r="5.5" />
+    <path d="M9.2 13.6 7.5 21l4.5-2.4L16.5 21l-1.7-7.4" />
+    <path d="M9.8 9.2l1.6 1.6 3-3.4" stroke-width="1.7" />
+  </svg>
+)}
+{icon === "safe" && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M12 2.8 20 6v5.4c0 4.8-3.2 8.3-8 9.8-4.8-1.5-8-5-8-9.8V6l8-3.2Z" />
+    <path d="M8.6 12.2l2.3 2.3 4.6-5" stroke-width="1.7" />
+  </svg>
+)}
+{icon === "capm" && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <rect x="3.5" y="6" width="17" height="13.5" rx="1.5" />
+    <path d="M8.5 6V4.5A1.5 1.5 0 0 1 10 3h4a1.5 1.5 0 0 1 1.5 1.5V6" />
+    <path d="M3.5 11.5h17" />
+  </svg>
+)}
+{icon === "ai" && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3" />
+    <rect x="7.5" y="7.5" width="9" height="9" rx="1.5" />
+    <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+  </svg>
+)}
+{icon === "fmea" && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M12 3 21 19.5H3L12 3Z" />
+    <path d="M12 9.5v4.5" stroke-width="1.7" />
+    <circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none" />
+  </svg>
+)}

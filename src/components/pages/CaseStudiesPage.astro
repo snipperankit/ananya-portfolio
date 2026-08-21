@@ -1,0 +1,45 @@
+---
+// Case studies listing — card view with date, title, skills, read more.
+import type { Lang } from "../../i18n";
+import { t } from "../../i18n";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tr = t(lang).caseStudies;
+
+const modules = import.meta.glob('/src/content/blog/*.mdx', { eager: true });
+const posts = Object.entries(modules).map(([path, mod]: [string, any]) => {
+  const slug = path.split('/').pop().replace('.mdx', '');
+  return { slug, ...(mod.frontmatter ?? {}) };
+}).filter((p: any) => !p.draft).sort((a: any, b: any) => (a.date ?? '') < (b.date ?? '') ? 1 : -1);
+
+const fmtDate = (d: string) => String(d).slice(0, 10);
+---
+<section class="section pt-32">
+  <div class="wrap">
+    <div class="max-w-3xl mb-12">
+      <span class="eyebrow">{tr.eyebrow}</span>
+      <h1 class="font-display font-normal text-[2.2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em] mb-4">{tr.title}</h1>
+      <p class="font-body text-[1.05rem] text-muted dark:text-muted-dark leading-relaxed">{tr.intro}</p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      {posts.map((post: any) => (
+        <article class="card flex flex-col p-8">
+          <div class="font-ui text-[10px] font-semibold uppercase tracking-[.2em] text-muted dark:text-muted-dark mb-4">{fmtDate(post.date)}</div>
+          <h2 class="font-display font-normal text-[1.35rem] leading-[1.25] tracking-[-0.01em] mb-3">
+            <a href={`/blog/${post.slug}`} class="hover:text-accent dark:hover:text-accent-dark transition-colors">{post.title}</a>
+          </h2>
+          {post.description && <p class="font-body text-[.95rem] text-muted dark:text-muted-dark leading-[1.6] mb-5">{post.description}</p>}
+          {Array.isArray(post.skills) && post.skills.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {post.skills.map((s: string) => (
+                <span class="font-ui text-[10px] uppercase tracking-[.1em] border border-ink/20 dark:border-ink-dark/25 text-ink/70 dark:text-ink-dark/70 px-2.5 py-1">{s}</span>
+              ))}
+            </div>
+          )}
+          <a href={`/blog/${post.slug}`} class="mt-auto inline-block self-start font-ui text-[11px] font-medium uppercase tracking-[.16em] border border-ink dark:border-ink-dark px-5 py-3 hover:bg-ink hover:text-pagebg dark:hover:bg-ink-dark dark:hover:text-pagebg-dark transition-colors">{tr.readMore}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

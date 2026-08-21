@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60">
+  <!-- Three-pointed star in circle -->
+  <circle cx="30" cy="30" r="27" fill="none" stroke="#000" stroke-width="2.5"/>
+  <circle cx="30" cy="30" r="24" fill="none" stroke="#000" stroke-width="1"/>
+  <!-- Three-pointed star -->
+  <polygon points="30,8 33.5,24 47,28 35,33 38,48 30,36 22,48 25,33 13,28 26.5,24" fill="#000"/>
+  <!-- Mercedes-Benz text -->
+  <text x="68" y="38" font-family="'Helvetica Neue',Arial,Helvetica,sans-serif" font-weight="400" font-size="24" fill="#000" letter-spacing="0.5">Mercedes-Benz</text>
+</svg>

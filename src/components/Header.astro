@@ -1,20 +1,43 @@
 ---
 import { SITE } from "../consts";
+import type { Lang } from "../i18n";
+import { t, localizePath } from "../i18n";
+
+interface Props { lang?: Lang }
+const { lang = "en" } = Astro.props;
+const tr = t(lang);
+
+const nav = [
+  { label: tr.nav.about, href: localizePath(lang, "/about") },
+  { label: tr.nav.caseStudies, href: localizePath(lang, "/blog") },
+  { label: tr.nav.insights, href: localizePath(lang, "/work") },
+];
+
+// Equivalent page in the other language; detail pages fall back to their
+// section index, unknown paths to home.
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const basePath = lang === "de" ? (pathname.replace(/^\/de/, "") || "/") : pathname;
+const localizedRoots = ["/", "/blog", "/work", "/about", "/impressum"];
+const switchBase = localizedRoots.includes(basePath)
+  ? basePath
+  : localizedRoots.find((r) => r !== "/" && basePath.startsWith(r)) ?? "/";
+const switchHref = lang === "de" ? switchBase : localizePath("de", switchBase);
 ---
-<header class="sticky top-0 z-50 bg-pagebg/80 dark:bg-pagebg-dark/80 backdrop-blur-xl border-b border-ink/[.04] dark:border-ink-dark/[.06]">
+<header class="fixed top-0 left-0 right-0 z-50 bg-pagebg/90 dark:bg-pagebg-dark/90 backdrop-blur-md border-b border-ink/15 dark:border-ink-dark/15">
   <div class="wrap flex items-center justify-between h-[72px]">
-    <a href="/" class="group flex items-center gap-3">
-      <span class="w-10 h-10 rounded-full bg-ink dark:bg-ink-dark flex items-center justify-center text-pagebg dark:text-pagebg-dark font-ui font-semibold text-[14px] group-hover:scale-105 transition-transform duration-200">AR</span>
-      <span class="font-display font-semibold text-ink dark:text-ink-dark text-[18px] tracking-[-0.01em] hidden sm:inline">{SITE.name}</span>
-    </a>
-    <nav class="flex items-center gap-2">
-      <a href="/blog" class="font-ui text-[16px] font-medium text-ink/70 dark:text-ink-dark/75 px-4 py-2 rounded-lg hover:text-ink dark:hover:text-ink-dark hover:bg-ink/[.04] dark:hover:bg-ink-dark/[.05] transition-all duration-150">Work</a>
-      <a href="/about" class="font-ui text-[16px] font-medium text-ink/70 dark:text-ink-dark/75 px-4 py-2 rounded-lg hover:text-ink dark:hover:text-ink-dark hover:bg-ink/[.04] dark:hover:bg-ink-dark/[.05] transition-all duration-150">About</a>
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg flex items-center justify-center text-ink/40 dark:text-ink-dark/50 hover:text-ink dark:hover:text-ink-dark hover:bg-ink/[.04] dark:hover:bg-ink-dark/[.05] transition-all duration-150 ml-1">
-        <svg class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-        <svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+    <a href={localizePath(lang, "/")} class="font-display font-semibold text-[1.4rem] text-ink dark:text-ink-dark leading-tight hover:opacity-70 transition-opacity">{SITE.name}</a>
+    <nav class="flex items-center gap-1">
+      {nav.map(item => (
+        <a href={item.href} class="hidden sm:inline font-ui text-[13px] font-medium uppercase tracking-[.16em] text-muted dark:text-muted-dark px-3 py-2 hover:text-ink dark:hover:text-ink-dark transition-colors duration-150">{item.label}</a>
+      ))}
+      <button data-contact-trigger class="font-ui text-[13px] font-medium uppercase tracking-[.16em] text-muted dark:text-muted-dark px-3 py-2 hover:text-ink dark:hover:text-ink-dark transition-colors duration-150 cursor-pointer">{tr.nav.contact}</button>
+      <a href={switchHref} class="font-ui text-[13px] font-medium uppercase tracking-[.16em] border border-ink/20 dark:border-ink-dark/25 text-ink dark:text-ink-dark px-3 py-2 ml-2 hover:border-ink dark:hover:border-ink-dark transition-colors duration-150" aria-label={lang === "de" ? "Switch to English" : "Zu Deutsch wechseln"}>
+        {lang === "de" ? "EN" : "DE"}
+      </a>
+      <button id="theme-toggle" class="font-ui text-[13px] font-semibold uppercase tracking-[.14em] bg-ink dark:bg-ink-dark text-pagebg dark:text-pagebg-dark px-4 py-2 ml-2 hover:opacity-80 transition-opacity duration-150">
+        <span class="dark:hidden">Light ⇄</span>
+        <span class="hidden dark:inline">Dark ⇄</span>
       </button>
-      <a href="mailto:ananyarao121996@gmail.com" class="font-ui text-[15px] font-medium bg-ink dark:bg-ink-dark text-pagebg dark:text-pagebg-dark px-5 py-2.5 rounded-full hover:opacity-85 transition-opacity duration-200 ml-3">Contact</a>
     </nav>
   </div>
 </header>

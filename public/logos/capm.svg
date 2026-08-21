@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="12" fill="#003B6D"/>
+  <text x="40" y="34" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="18" fill="#fff">PMI</text>
+  <rect x="16" y="42" width="48" height="2" rx="1" fill="#E4A832"/>
+  <text x="40" y="58" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="10" fill="#E4A832">CAPM</text>
+</svg>

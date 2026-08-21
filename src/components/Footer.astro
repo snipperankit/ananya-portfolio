@@ -1,12 +1,21 @@
 ---
 import { SITE } from "../consts";
+import type { Lang } from "../i18n";
+import { t, localizePath } from "../i18n";
+import { CONTACT } from "../data/profile";
+
+interface Props { lang?: Lang }
+const { lang = "en" } = Astro.props;
+const tr = t(lang);
 const year = new Date().getFullYear();
 ---
-<footer class="bg-ink dark:bg-card-dark border-t border-ink dark:border-ink-dark/10 mt-20">
-  <div class="wrap py-14 flex flex-col md:flex-row items-center justify-between gap-6">
-    <div class="font-ui text-[16px] text-white/70 dark:text-ink-dark/70">© {year} {SITE.name} · {SITE.role}</div>
-    <div class="flex items-center gap-6 font-ui text-[16px]">
-      {SITE.socials.map((s) => <a href={s.href} class="text-white/60 dark:text-ink-dark/60 hover:text-accent-dark transition-colors duration-150">{s.label}</a>)}
+<footer class="border-t border-ink/15 dark:border-ink-dark/15">
+  <div class="wrap py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-ui text-[11px] font-medium uppercase tracking-[.16em] text-muted dark:text-muted-dark">© {year} {SITE.name} · {tr.footer.role}</div>
+    <div class="flex items-center gap-6 font-ui text-[11px] font-medium uppercase tracking-[.16em]">
+      <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" class="text-muted dark:text-muted-dark hover:text-ink dark:hover:text-ink-dark transition-colors duration-150">LinkedIn</a>
+      <a href={`mailto:${CONTACT.email}`} class="text-muted dark:text-muted-dark hover:text-ink dark:hover:text-ink-dark transition-colors duration-150">{tr.footer.email}</a>
+      <a href={localizePath(lang, "/impressum")} class="text-muted dark:text-muted-dark hover:text-ink dark:hover:text-ink-dark transition-colors duration-150">{tr.footer.impressum}</a>
     </div>
   </div>
 </footer>

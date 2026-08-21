@@ -23,13 +23,13 @@ const Post = mod.default;
 ---
 
 <Layout title={frontmatter.title}>
-  <article class="section">
-    <div class="wrap max-w-[960px] mx-auto">
+  <article class="section pt-32">
+    <div class="wrap max-w-[860px] mx-auto">
       <div class="mb-10">
         {frontmatter.eyebrow && <span class="eyebrow">{frontmatter.eyebrow}</span>}
-        <h1 class="font-display text-[2.4rem] md:text-[3.25rem] font-extrabold leading-[1.05] tracking-[-0.03em] mt-2 mb-4">{frontmatter.title}</h1>
-        <div class="flex items-center gap-4 text-[14px] text-ink/50 dark:text-ink-dark/50 font-ui">
-          <span>{frontmatter.date}</span>
+        <h1 class="font-display text-[2.2rem] md:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] mt-2 mb-4">{frontmatter.title}</h1>
+        <div class="flex items-center gap-4 text-[11px] text-ink/40 dark:text-ink-dark/40 font-ui uppercase tracking-[.1em]">
+          <span>{String(frontmatter.date).slice(0, 10)}</span>
         </div>
       </div>
       <div class="prose max-w-none">

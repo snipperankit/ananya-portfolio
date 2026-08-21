@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60">
+  <!-- Red square with Toyota emblem -->
+  <rect x="0" y="5" width="50" height="50" rx="2" fill="#EB0A1E"/>
+  <!-- Outer ellipse -->
+  <ellipse cx="25" cy="30" rx="18" ry="13" stroke="#fff" stroke-width="2" fill="none"/>
+  <!-- Inner horizontal ellipse -->
+  <ellipse cx="25" cy="30" rx="11" ry="8" stroke="#fff" stroke-width="1.5" fill="none"/>
+  <!-- Center vertical ellipse -->
+  <ellipse cx="25" cy="30" rx="4.5" ry="13" stroke="#fff" stroke-width="1.5" fill="none"/>
+  <!-- TOYOTA wordmark -->
+  <text x="62" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="32" fill="#000" letter-spacing="3">TOYOTA</text>
+</svg>

@@ -1,0 +1,152 @@
+---
+/**
+ * AgileHero — decorative 3D collaboration-network hero animation.
+ * Client-only island: dynamically imports Three.js so it never hits SSR.
+ * Falls back to a static poster on mobile, reduced-motion, or low-power devices.
+ */
+export interface Props {
+  enabled?: boolean;
+  nodeCount?: number;
+  loopDuration?: number;
+  intensity?: number;
+  disableOnMobile?: boolean;
+  mobileBreakpoint?: number;
+  posterSrc?: string;
+}
+
+const {
+  enabled = true,
+  nodeCount = 56,
+  loopDuration = 8,
+  intensity = 0.6,
+  disableOnMobile = true,
+  mobileBreakpoint = 480,
+  posterSrc,
+} = Astro.props;
+---
+
+{enabled && (
+  <div class="agile-hero-wrap" aria-hidden="true">
+    {posterSrc && (
+      <img
+        src={posterSrc}
+        alt=""
+        class="agile-hero-poster"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+    <canvas
+      id="agile-hero-canvas"
+      class="agile-hero-canvas"
+      data-node-count={nodeCount}
+      data-loop-duration={loopDuration}
+      data-intensity={intensity}
+      data-disable-mobile={disableOnMobile}
+      data-mobile-bp={mobileBreakpoint}
+    ></canvas>
+  </div>
+)}
+
+<style>
+  .agile-hero-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .agile-hero-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.45;
+  }
+  .agile-hero-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+  }
+  /* Show poster, hide canvas until JS decides */
+  .agile-hero-canvas { visibility: hidden; }
+  .agile-hero-canvas.active { visibility: visible; }
+  .agile-hero-canvas.active + .agile-hero-poster,
+  .agile-hero-canvas.active ~ .agile-hero-poster { display: none; }
+</style>
+
+<script>
+  // Client-only: bootstrap the hero animation with all safety guards.
+  const canvas = document.getElementById("agile-hero-canvas") as HTMLCanvasElement | null;
+  if (canvas) {
+    const ds = canvas.dataset;
+    const nodeCount = Number(ds.nodeCount) || 56;
+    const loopDuration = Number(ds.loopDuration) || 8;
+    const intensity = Number(ds.intensity) || 0.6;
+    const disableMobile = ds.disableMobile !== "false";
+    const mobileBp = Number(ds.mobileBp) || 768;
+
+    const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = disableMobile && window.innerWidth < mobileBp;
+    const lowPower =
+      (navigator.hardwareConcurrency ?? 4) <= 2 ||
+      ((navigator as Record<string, unknown>).deviceMemory as number ?? 8) < 4;
+
+    const shouldAnimate = !isMobile && !lowPower;
+
+    if (shouldAnimate) {
+      // Dynamic import keeps three.js out of the critical bundle
+      import("../scripts/agileHero").then(async (mod) => {
+        const state = await mod.init({
+          canvas,
+          nodeCount,
+          loopDuration,
+          intensity,
+          inkVar: "--hero-ink",
+        });
+
+        canvas.classList.add("active");
+
+        // Reduced motion: render one static composed frame, no loop
+        if (prefersReduced) {
+          mod.renderStatic(state);
+          return;
+        }
+
+        // Pause when offscreen
+        let visible = true;
+        const io = new IntersectionObserver(
+          ([entry]) => {
+            if (!entry) return;
+            visible = entry.isIntersecting;
+            if (visible) mod.startLoop(state);
+            else mod.stopLoop(state);
+          },
+          { threshold: 0.05 },
+        );
+        io.observe(canvas);
+
+        // Pause when tab hidden
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) mod.stopLoop(state);
+          else if (visible) mod.startLoop(state);
+        });
+
+        // Theme change
+        const themeObs = new MutationObserver(() => mod.updateThemeColor(state));
+        themeObs.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class", "data-theme"],
+        });
+
+        // Resize
+        window.addEventListener("resize", () => mod.resize(state));
+
+        // Start
+        mod.startLoop(state);
+      });
+    }
+  }
+</script>

@@ -13,7 +13,7 @@ const alignment = z.enum(["left", "center", "right"]);
 
 const headingBlock = z.object({
   type: z.literal("heading"),
-  level: z.number().int().min(1).max(3),
+  level: z.coerce.number().int().min(1).max(3),
   text: z.string(),
   font: fontEnum.optional(),
   align: alignment.optional(),
@@ -106,6 +106,8 @@ export const collections = {
       title: z.string(),
       date: z.string().transform((s) => s),
       eyebrow: z.string().optional(),
+      description: z.string().optional(),
+      skills: z.array(z.string()).optional(),
       font: fontEnum.optional(),
       blocks: z.array(blockUnion),
     }),

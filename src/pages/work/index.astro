@@ -1,25 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import CaseStudyCard from "../../components/CaseStudyCard.astro";
-import { getCollection } from "astro:content";
-
-const studies = (await getCollection("caseStudies", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+import InsightsPage from "../../components/pages/InsightsPage.astro";
 ---
-<Layout title="Case studies">
-  <section class="hero">
-    <div class="wrap read">
-      <p class="eyebrow">Work</p>
-      <h1>Case studies</h1>
-      <p class="lede">Agile transformations, told as before-and-after stories.</p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="wrap">
-      <div class="grid">
-        {studies.map((entry) => <CaseStudyCard entry={entry} />)}
-      </div>
-    </div>
-  </section>
+<Layout title="Insights">
+  <InsightsPage lang="en" />
 </Layout>
+
