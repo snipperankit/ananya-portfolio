@@ -1,5 +1,4 @@
 ---
-// CMS admin page — reads config.yml at build time and injects it inline
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -19,7 +18,7 @@ const configYaml = fs.readFileSync(configPath, 'utf-8');
     <script is:inline define:vars={{ configYaml }}>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script is:inline src="https://unpkg.com/decap-cms-app@3/dist/decap-cms.js"></script>
+    <script is:inline src="https://unpkg.com/decap-cms-app@3.3.3/dist/decap-cms.js"></script>
     <script is:inline>
       const yaml = jsyaml.load(configYaml);
       delete yaml.local_backend;
