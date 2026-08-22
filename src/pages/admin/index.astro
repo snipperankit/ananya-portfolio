@@ -12,119 +12,18 @@ const configYaml = fs.readFileSync(configPath, 'utf-8');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Content Manager</title>
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>   ← ADD THIS LINE
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script is:inline src="https://unpkg.com/js-yaml@4/dist/js-yaml.min.js"></script>
-</head>
+  </head>
   <body>
     <script is:inline define:vars={{ configYaml }}>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script is:inline src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script is:inline src="https://unpkg.com/decap-cms-app@3/dist/decap-cms.js"></script>
     <script is:inline>
-      // Renders the "blocks" list widget in the live preview pane, since
-      // Decap CMS has no default preview for custom list/type widgets.
-      var h = window.h;
-      var createClass = window.createClass;
-
-      function mdToHtml(text) {
-        if (!text) return '';
-        return text
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/\*(.+?)\*/g, '<em>$1</em>')
-          .split(/\n\s*\n/)
-          .map(function (p) { return '<p>' + p.replace(/\n/g, '<br/>') + '</p>'; })
-          .join('');
-      }
-
-      function renderBlock(block, getAsset, i) {
-        var type = block.get('type');
-        var style = { marginBottom: '1.5em' };
-        if (type === 'heading') {
-          var level = block.get('level') || 1;
-          return h('h' + level, { key: i, style: style }, block.get('text'));
-        }
-        if (type === 'text') {
-          return h('div', {
-            key: i,
-            style: style,
-            dangerouslySetInnerHTML: { __html: mdToHtml(block.get('text')) },
-          });
-        }
-        if (type === 'article') {
-          return h('div', { key: i, style: style }, [
-            block.get('title') && h('h3', { key: 't' }, block.get('title')),
-            block.get('excerpt') && h('p', { key: 'e' }, block.get('excerpt')),
-          ]);
-        }
-        if (type === 'image') {
-          var src = block.get('image');
-          var url = src && getAsset ? getAsset(src).toString() : src;
-          return h('figure', { key: i, style: style }, [
-            h('img', { key: 'img', src: url, style: { maxWidth: '100%', borderRadius: '8px' } }),
-            block.get('caption') && h('figcaption', { key: 'cap', style: { fontSize: '0.85em', opacity: 0.6 } }, block.get('caption')),
-          ]);
-        }
-        if (type === 'gallery') {
-          var images = block.get('images');
-          return h('div', { key: i, style: Object.assign({ display: 'flex', gap: '8px', flexWrap: 'wrap' }, style) },
-            images ? images.map(function (img, j) {
-              var u = img.get('url');
-              var src2 = u && getAsset ? getAsset(u).toString() : u;
-              return h('img', { key: j, src: src2, style: { width: '150px', borderRadius: '8px' } });
-            }).toArray() : []
-          );
-        }
-        if (type === 'video') {
-          return h('p', { key: i, style: style }, 'Video: ' + block.get('url'));
-        }
-        if (type === 'chart') {
-          return h('div', { key: i, style: style }, 'Chart (' + block.get('chartType') + '): ' + block.get('title'));
-        }
-        if (type === 'quote') {
-          return h('blockquote', { key: i, style: Object.assign({ borderLeft: '3px solid #ccc', paddingLeft: '1em', fontStyle: 'italic' }, style) }, [
-            h('p', { key: 'q' }, block.get('text')),
-            block.get('attribution') && h('cite', { key: 'a' }, '— ' + block.get('attribution')),
-          ]);
-        }
-        if (type === 'cta') {
-          return h('a', { key: i, href: block.get('href'), style: Object.assign({ display: 'inline-block', padding: '.5em 1em', border: '1px solid #333', borderRadius: '6px' }, style) }, block.get('label'));
-        }
-        if (type === 'divider') {
-          return h('hr', { key: i, style: style });
-        }
-        return h('div', { key: i, style: style }, 'Unknown block: ' + type);
-      }
-
-      var BlocksPreview = createClass({
-        render: function () {
-          var entry = this.props.entry;
-          var blocks = entry.getIn(['data', 'blocks']);
-          var getAsset = this.props.getAsset;
-          return h('div', { style: { fontFamily: 'sans-serif', lineHeight: 1.6 } }, [
-            h('h1', { key: 'title' }, entry.getIn(['data', 'title'])),
-            h('p', { key: 'date', style: { opacity: 0.6 } }, entry.getIn(['data', 'date'])),
-            blocks ? blocks.map(function (b, i) { return renderBlock(b, getAsset, i); }).toArray() : null,
-          ]);
-        },
-      });
-
-      window.__registerBlocksPreview = function () {
-        window.CMS.registerPreviewTemplate('blog', BlocksPreview);
-        window.CMS.registerPreviewTemplate('about', BlocksPreview);
-      };
-    </script>
-    <script is:inline define:vars={{ configYaml }}>
-      var parsed = jsyaml.load(configYaml);
-      // Use local proxy only when running on localhost
-      if (parsed.local_backend && window.location.hostname === 'localhost') {
-        parsed.backend = { name: 'proxy', proxy_url: 'http://localhost:8081/api/v1' };
-      }
-      delete parsed.local_backend;
-      parsed.load_config_file = false;
-      window.__registerBlocksPreview();
-      window.CMS.init({ config: parsed });
+      const yaml = jsyaml.load(configYaml);
+      delete yaml.local_backend;
+      CMS.init({ config: yaml });
     </script>
   </body>
 </html>
