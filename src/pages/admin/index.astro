@@ -18,11 +18,13 @@ const configYaml = fs.readFileSync(configPath, 'utf-8');
     <script is:inline define:vars={{ configYaml }}>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script is:inline src="https://unpkg.com/decap-cms-app@3.3.3/dist/decap-cms.js"></script>
+    <script is:inline src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script is:inline src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script is:inline src="https://unpkg.com/decap-cms-app@3.15.1/dist/decap-cms-app.js"></script>
     <script is:inline>
       const yaml = jsyaml.load(configYaml);
       delete yaml.local_backend;
-      CMS.init({ config: yaml });
+      DecapCmsApp.init({ config: yaml });
     </script>
   </body>
 </html>
