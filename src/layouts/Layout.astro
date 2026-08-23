@@ -35,8 +35,7 @@ const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.
     <ContactToast lang={lang} />
     <script is:inline>
       (function() {
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('theme') === 'dark') {
           document.documentElement.classList.add('dark');
         }
       })();
