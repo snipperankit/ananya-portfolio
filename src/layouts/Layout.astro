@@ -21,12 +21,12 @@ const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <!-- favicon link removed to avoid content-assets import during local MDX preview -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Space+Grotesk:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body class="bg-pagebg dark:bg-pagebg-dark text-ink dark:text-ink-dark font-ui antialiased transition-colors duration-300">
     <Header lang={lang} />
@@ -40,13 +40,6 @@ const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.
           document.documentElement.classList.add('dark');
         }
       })();
-    </script>
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function(user) {
-          if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
-        });
-      }
     </script>
   </body>
 </html>
