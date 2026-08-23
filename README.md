@@ -3,7 +3,7 @@
 Professional portfolio for Ananya Rao — Project Management Specialist, Release Train Engineer & Scrum Master. Built with Astro, Tailwind CSS, and Decap CMS.
 
 **Live:** https://ananya-rao-portfolio.com  
-**CMS:** https://ananya-rao-portfolio.com/admin/
+**CMS:** ****
 
 ---
 
