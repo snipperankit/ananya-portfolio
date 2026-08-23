@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: snipperankit/ananya-portfolio
   branch: main
+  base_url: https://sveltia-cms-auth.anand-ankit093.workers.dev
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
