@@ -1,7 +1,7 @@
 // Site-wide settings. Edit these first — they drive the header, footer, and meta.
 export const SITE = {
   name: "Ananya Rao",
-  role: "Project Management Specialist · RTE · Scrum Master",
+  role: "Project Management Specialist · RTE · Scrum Master. PRM",
   tagline:
     "Steering large-scale international projects from predictable planning to value delivery.",
   description:
