@@ -7,7 +7,7 @@ export const SITE = {
   description:
     "Ananya Rao — Project Management Specialist, Scrum Master and Release Train Engineer. Case studies in scaled agile delivery.",
   nav: [
-    { label: "case studies & insights", href: "/blog" },
+    { label: "Case Studies & Insights", href: "/blog" },
     { label: "About", href: "/about" },
   ],
   socials: [
