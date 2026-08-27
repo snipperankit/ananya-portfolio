@@ -22,8 +22,8 @@ export const experience: ExperienceEntry[] = [
     company: "Continental ADC GmbH → AUMOVIO (spin-off)",
     location: { en: "Ulm, Germany", de: "Ulm, Deutschland" },
     summary: {
-      en: "Leading four ADAS/Radar projects for Mercedes-Benz — coordinating cross-functional, international teams of around 50 people in an ASPICE-regulated environment. Previously Scrum Master and RTE across ADAS/Radar programmes at Continental ADC GmbH.",
-      de: "Leitung von vier ADAS-/Radar-Projekten für Mercedes-Benz — Koordination internationaler, funktionsübergreifender Teams mit rund 50 Personen in einem ASPICE-regulierten Umfeld. Zuvor Scrum Master und RTE in ADAS-/Radar-Programmen bei Continental ADC GmbH.",
+      en: "Served as the Release Train Engineer and Scrum Master across 4 ADAS Radar Mercedes-Benz projects. Coordinated cross-functional, international teams of ART size of 50+ in an ASPICE-regulated environment.",
+      de: "Leitung von vier ADAS-/Radar-Projekten für Mercedes-Benz — Koordination internationaler, funktionsübergreifender Teams mit rund 50 Personen in einem ASPICE-regulierten Umfeld.",
     },
     highlights: [
       {
