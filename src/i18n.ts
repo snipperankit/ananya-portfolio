@@ -9,7 +9,7 @@ export function localizePath(lang: Lang, path: string): string {
 export const ui = {
   en: {
     nav: {
-      caseStudies: "case studies & insights",
+      caseStudies: "Case Studies & Insights",
       insights: "Insights",
       about: "About",
       contact: "Contact",
@@ -19,7 +19,7 @@ export const ui = {
       eyebrow: "Project Management Specialist · RTE · Scrum Master",
       headline:
         "Steering large-scale international projects from predictable planning to value delivery.",
-      btnCaseStudies: "case studies & insights",
+      btnCaseStudies: "Case Studies & Insights",
       btnInsights: "Insights",
       statYearsValue: "9",
       statYearsLabel: "Years of experience",
@@ -37,7 +37,7 @@ export const ui = {
     },
     caseStudies: {
       eyebrow: "Portfolio",
-      title: "case studies & insights",
+      title: "Case Studies & Insights",
       intro:
         "Agile transformations, delivery improvements, and team coaching — each documented with the measurable outcome it produced.",
       readMore: "Read more →",
