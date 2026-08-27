@@ -6,6 +6,8 @@ backend:
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
+slug:
+  clean_accents: true
 
 collections:
   - name: "blog"
@@ -119,57 +121,7 @@ collections:
             fields:
               - { name: divider, label: "Divider", widget: "hidden", default: true }
 
-  - name: "casestudies"
-    label: "Insights"
-    folder: "src/content/casestudies"
-    create: true
-    slug: "{{slug}}"
-    extension: "mdx"
-    format: "frontmatter"
-    fields:
-      - { name: title, label: "Title", widget: "string", required: true }
-      - { name: date, label: "Date (YYYY-MM-DD)", widget: "string" }
-      - { name: draft, label: "Hide (draft)", widget: "boolean", default: false, required: false }
-      - { name: featured, label: "Featured", widget: "boolean", default: false, required: false }
-      - { name: eyebrow, label: "Eyebrow", widget: "string", required: false }
-      - { name: description, label: "Description", widget: "text", required: false }
-      - { name: client, label: "Client", widget: "string", required: false }
-      - { name: role, label: "Role", widget: "string", required: false }
-      - { name: skills, label: "Skills / Tags", widget: "list", required: false }
-      - { name: outcomes, label: "Outcomes", widget: "list", required: false }
-      - { name: font, label: "Font", widget: "select", options: ["Newsreader","Space Grotesk","Libre Franklin","Lora","Playfair Display","IBM Plex Mono"], required: false }
-      - name: blocks
-        label: "Body"
-        widget: "list"
-        types:
-          - label: "Heading"
-            name: "heading"
-            fields:
-              - { name: level, label: "Level", widget: "select", options: ["1","2","3"], default: "2" }
-              - { name: text, label: "Text", widget: "string" }
-              - { name: font, label: "Font (optional)", widget: "select", options: ["Newsreader","Space Grotesk","Libre Franklin","Lora","Playfair Display","IBM Plex Mono"], required: false }
-              - { name: align, label: "Align", widget: "select", options: ["left","center","right"], required: false }
-          - label: "Text"
-            name: "text"
-            fields:
-              - { name: text, label: "Text (Markdown supported: **bold**, *italic*)", widget: "text", required: false }
-              - { name: font, label: "Font (optional)", widget: "select", options: ["Newsreader","Space Grotesk","Libre Franklin","Lora","Playfair Display","IBM Plex Mono"], required: false }
-              - { name: align, label: "Align", widget: "select", options: ["left","center","right"], required: false }
-          - label: "Image"
-            name: "image"
-            fields:
-              - { name: image, label: "Image", widget: "image" }
-              - { name: caption, label: "Caption", widget: "string", required: false }
-              - { name: alt, label: "Alt text", widget: "string", required: false }
-          - label: "Quote"
-            name: "quote"
-            fields:
-              - { name: text, label: "Quote text", widget: "text" }
-              - { name: attribution, label: "Attribution", widget: "string", required: false }
-          - label: "Divider"
-            name: "divider"
-            fields:
-              - { name: divider, label: "Divider", widget: "hidden", default: true }
+  # "Insights" collection removed — CMS now exposes only Case Studies and About
 
   - name: "about"
     label: "About page"
