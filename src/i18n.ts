@@ -16,7 +16,7 @@ export const ui = {
     },
     langSwitch: "Deutsch",
     home: {
-      eyebrow: "Project Management Specialist · RTE · Scrum Master",
+      eyebrow: "Project Management Specialist · RTE · Scrum Master. PRM",
       headline:
         "Steering large-scale international projects from predictable planning to value delivery.",
       btnCaseStudies: "Case Studies & Insights",
@@ -52,7 +52,7 @@ export const ui = {
     },
     about: {
       title: "About me",
-      role: "Project Management Specialist · RTE · Scrum Master",
+      role: "Project Management Specialist · RTE · Scrum Master. PRM",
       visaLabel: "Visa",
       visaValue: "Permanent Residency",
       languagesLabel: "Languages",
@@ -87,7 +87,7 @@ export const ui = {
     },
     langSwitch: "English",
     home: {
-      eyebrow: "Projektmanagement-Spezialistin · RTE · Scrum Master",
+      eyebrow: "Projektmanagement-Spezialistin · RTE · Scrum Master. PRM",
       headline:
         "Internationale Großprojekte steuern — von verlässlicher Planung bis zur messbaren Wertlieferung.",
       btnCaseStudies: "Fallstudien",
@@ -124,7 +124,7 @@ export const ui = {
     },
     about: {
       title: "Über mich",
-      role: "Projektmanagement-Spezialistin · RTE · Scrum Master",
+      role: "Projektmanagement-Spezialistin · RTE · Scrum Master. PRM",
       visaLabel: "Visum",
       visaValue: "Niederlassungserlaubnis",
       languagesLabel: "Sprachen",
