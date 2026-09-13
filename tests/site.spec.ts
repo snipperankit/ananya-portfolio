@@ -16,6 +16,23 @@ test("about page loads", async ({ page }) => {
 test("blog index loads", async ({ page }) => {
   const res = await page.goto("/blog");
   expect(res?.status()).toBe(200);
+  const languageButtons = page.locator(
+    'button[aria-label="Translation to DE unavailable"]',
+  );
+  await expect(languageButtons).toHaveCount(2);
+  await languageButtons.first().click();
+  await expect(page.locator("#language-notice")).toBeVisible();
+  await expect(page).toHaveURL(/\/blog\/?$/);
+});
+
+test("localized pages keep the language switch", async ({ page }) => {
+  await page.goto("/about");
+  await expect(page.locator('a[aria-label="Zu Deutsch wechseln"]')).toHaveCount(
+    2,
+  );
+  await expect(
+    page.locator('a[aria-label="Zu Deutsch wechseln"]').first(),
+  ).toHaveAttribute("href", "/de/about");
 });
 
 test("blog post loads", async ({ page }) => {
