@@ -15,6 +15,13 @@ export const ui = {
       contact: "Contact",
     },
     langSwitch: "Deutsch",
+    translationNotice: {
+      english:
+        "This page is currently available only in English. The German translation is in progress.",
+      german:
+        "Diese Seite ist derzeit nur auf Englisch verfügbar. Die deutsche Übersetzung ist in Arbeit.",
+      close: "Close / Schließen",
+    },
     home: {
       eyebrow: "Project Management Specialist · RTE · Scrum Master. PRM",
       headline:
@@ -86,6 +93,13 @@ export const ui = {
       contact: "Kontakt",
     },
     langSwitch: "English",
+    translationNotice: {
+      english:
+        "This page is currently available only in English. The German translation is in progress.",
+      german:
+        "Diese Seite ist derzeit nur auf Englisch verfügbar. Die deutsche Übersetzung ist in Arbeit.",
+      close: "Close / Schließen",
+    },
     home: {
       eyebrow: "Projektmanagement-Spezialistin · RTE · Scrum Master. PRM",
       headline:
