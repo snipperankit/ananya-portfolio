@@ -242,7 +242,7 @@ blocks:
       smaller, faster hardware increments.
 
 
-      To summarize, here are all the Agile facets that shall support hardware and firmware teams:
+      To summarize, here are all the Agile facets from these principles that shall support hardware and firmware teams. These facets are categorised into three categories: Engineering and Testing Facets, Process and Governance Facets, and the Team Structure and Culture-related facets.
   - type: image
     image: /uploads/agile-facets.png
     caption: Agile Facets for Hardware Teams
@@ -270,14 +270,28 @@ blocks:
       The table categorizes some of the commonly faced technical blockers across the semiconductor, automotive ADAS Radar, automated test equipment, sensor modules, medical devices, and avionics industries. The corresponding impact and the possible mitigation strategies are also documented.
   - type: image
     image: /uploads/universal-hardware-blocker.png
-    caption: "Universal Hardware Blocker Framework (Tiger Teams - A small, temporary
+    caption: "Universal Hardware Blocker Framework (Tiger Teams: A small, temporary
       group of cross-functional members assembled to solve a specific blocker
-      together, HSI : Hardware Software Interface)"
+      together, HSI: Hardware Software Interface)"
     alt: ""
   - type: text
     text: >-
-      Overall, successfully leading hardware-based teams requires leadership to
-      inculcate a mindset of System-Level Engineering.
+      - In Semiconductor Design, Manufacturing & Foundries, long foundry
+      manufacturing wait windows (The Physical Lead-Time Wall), performance
+      sorting variations (Microarchitectural & Parametric Flaws), and device
+      degradation variables (Microelectronic Physical Wearout) create
+      integration idle time and erratic errors that mimic software regression,
+      requiring a strict reliance on virtual emulation platforms and early
+      reliability validation models.
+
+      - Across Automotive & Power Semiconductors, tight co-design requirements can lead to structural friction points (Multi-Domain Alignment Gaps), where late mechanical or analog tweaks instantly break firmware calibrations and stall validation phases unless managed by dedicated cross-functional Interface Tiger Teams.
+
+      - Similarly, variables in Automated Test Equipment (ATE) Environments (Yield, Quality, & Material Volatility) and physical high-frequency sensor anomalies in Automotive ADAS Modules (RF Signal & Material Attenuation) exhaust valuable testing assets and blind target-tracking algorithms, demanding structured prototype buffers and specialized Hardware-in-the-Loop (HIL) testing arrays.
+
+      - Finally, in heavily regulated safety-critical sectors spanning Medical Devices, Automotive ADAS & Avionics (Strict Regulatory & Architectural Gates), traditional "fail fast" cycles completely break down under hard compliance boundaries, making it mandatory for project leaders to shift traceability left by integrating requirement matrices directly into the daily Definition of Done (DoD).
+
+
+      Overall, successfully leading hardware-based teams requires leadership to inculcate a mindset of System-Level Engineering.
 
 
       ✅ Agile does not replace physical technical blockers; however, the framework helps surface them and provides the visibility to manage them proactively.
