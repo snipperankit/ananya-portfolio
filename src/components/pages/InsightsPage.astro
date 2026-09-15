@@ -1,7 +1,7 @@
 ---
 // Insights listing — card view over the caseStudies collection.
 import type { Lang } from "../../i18n";
-import { t } from "../../i18n";
+import { t, localizePath } from "../../i18n";
 import { getCollection } from "astro:content";
 
 interface Props { lang: Lang }
@@ -25,7 +25,7 @@ const fmt = (d: Date) => d.toLocaleDateString(lang === "de" ? "de-DE" : "en-GB",
         <article class="card flex flex-col p-8">
           <div class="font-ui text-[10px] font-semibold uppercase tracking-[.2em] text-muted dark:text-muted-dark mb-4">{fmt(entry.data.date)} · {entry.data.role} · {entry.data.client}</div>
           <h2 class="font-display font-normal text-[1.35rem] leading-[1.25] tracking-[-0.01em] mb-3">
-            <a href={`/work/${entry.id}`} class="hover:text-accent dark:hover:text-accent-dark transition-colors">{entry.data.title}</a>
+            <a href={localizePath(lang, `/work/${entry.id}`)} class="hover:text-accent dark:hover:text-accent-dark transition-colors">{entry.data.title}</a>
           </h2>
           <p class="font-body text-[.95rem] text-muted dark:text-muted-dark leading-[1.6] mb-5">{entry.data.summary}</p>
           {entry.data.tags.length > 0 && (
@@ -35,7 +35,7 @@ const fmt = (d: Date) => d.toLocaleDateString(lang === "de" ? "de-DE" : "en-GB",
               ))}
             </div>
           )}
-          <a href={`/work/${entry.id}`} class="mt-auto inline-block self-start font-ui text-[11px] font-medium uppercase tracking-[.16em] border border-ink dark:border-ink-dark px-5 py-3 hover:bg-ink hover:text-pagebg dark:hover:bg-ink-dark dark:hover:text-pagebg-dark transition-colors">{tr.readMore}</a>
+          <a href={localizePath(lang, `/work/${entry.id}`)} class="mt-auto inline-block self-start font-ui text-[11px] font-medium uppercase tracking-[.16em] border border-ink dark:border-ink-dark px-5 py-3 hover:bg-ink hover:text-pagebg dark:hover:bg-ink-dark dark:hover:text-pagebg-dark transition-colors">{tr.readMore}</a>
         </article>
       ))}
     </div>
