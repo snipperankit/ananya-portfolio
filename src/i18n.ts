@@ -126,8 +126,7 @@ export const ui = {
     caseStudies: {
       eyebrow: "Portfolio",
       title: "Fallstudien",
-      intro:
-        "Agile Transformationen, Verbesserungen in der Delivery und Team-Coaching — jeweils dokumentiert mit dem messbaren Ergebnis.",
+      intro: "",
       readMore: "Weiterlesen →",
       skillsLabel: "Kompetenzen",
     },
