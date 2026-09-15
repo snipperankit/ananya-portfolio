@@ -35,6 +35,8 @@ export const ui = {
       statCustomersValue: "Mercedes-Benz · Toyota · Revolut",
       statCustomersLabel: "Key Customer projects handled",
       certsLabel: "Certifications",
+      certsDescription:
+        "Industry-recognized credentials validating expertise in agile, project management, and AI.",
       selectedEyebrow: "Selected work",
       selectedTitle: "Case studies with outcomes",
       read: "Read →",
@@ -112,12 +114,13 @@ export const ui = {
       statCustomersValue: "Mercedes-Benz · Toyota · Revolut",
       statCustomersLabel: "Kunden (Auswahl)",
       certsLabel: "Zertifizierungen",
+      certsDescription:
+        "Anerkannte Zertifizierungen in Agile, Projektmanagement und KI.",
       selectedEyebrow: "Ausgewählte Arbeiten",
       selectedTitle: "Fallstudien mit messbaren Ergebnissen",
       read: "Lesen →",
-      ctaTitle: "Bringen wir Ihre Delivery auf Kurs",
-      ctaBody:
-        "Sie suchen eine Scrum Masterin oder Release Train Engineerin, die Teams besser hinterlässt, als sie sie vorgefunden hat? Ich bin offen für neue Aufgaben.",
+      ctaTitle: "Suchen Sie einen Katalysator in Ihrem Team?",
+      ctaBody: "",
       ctaButton: "Kontakt aufnehmen",
     },
     caseStudies: {
