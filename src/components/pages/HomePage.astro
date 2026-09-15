@@ -60,7 +60,7 @@ const fmtDate = (d: string) => String(d).slice(0, 10);
 <section class="border-b border-ink/15 dark:border-ink-dark/15">
   <div class="wrap py-14 md:py-16">
     <h2 class="font-ui text-[13px] font-semibold uppercase tracking-[.3em] text-ink/45 dark:text-ink-dark/45 text-center mb-3">{tr.certsLabel}</h2>
-    <p class="font-body text-[1rem] text-ink/50 dark:text-ink-dark/50 text-center mb-10">Industry-recognized credentials validating expertise in agile, project management, and AI.</p>
+    <p class="font-body text-[1rem] text-ink/50 dark:text-ink-dark/50 text-center mb-10">{tr.certsDescription}</p>
     <div class="flex flex-wrap justify-center gap-5">
       {certifications.map(c => (
         <article class="bg-card dark:bg-card-dark border border-ink/10 dark:border-ink-dark/10 rounded-xl p-6 w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.875rem)] hover:border-ink/25 dark:hover:border-ink-dark/25 hover:shadow-md transition-all duration-200">
