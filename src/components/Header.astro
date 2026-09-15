@@ -16,7 +16,7 @@ const nav = [
 // section index, unknown paths to home.
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 const basePath = lang === "de" ? (pathname.replace(/^\/de/, "") || "/") : pathname;
-const localizedRoots = ["/", "/about", "/impressum"];
+const localizedRoots = ["/", "/about", "/impressum", "/work"];
 const canSwitchLanguage = localizedRoots.includes(basePath);
 const switchHref = lang === "de" ? basePath : localizePath("de", basePath);
 const unavailableLanguage = lang === "de" ? "EN" : "DE";
