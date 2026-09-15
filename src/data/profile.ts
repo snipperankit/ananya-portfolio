@@ -247,7 +247,7 @@ export const certifications: Certification[] = [
 
 export const aboutIntro: Record<Lang, string[]> = {
   en: [
-    "Certified SAFe 6 CSM and PMP Professional, with close to 9 years of work experience in Agile leadership, management, and a technical background in software development. Led project teams in large-scale agile environments of international cross-functional teams.",
+    "Certified Project Mangement Professional, with close to 9 years of work experience in Agile leadership, management, and a technical background in software development. Led project teams in large-scale environments of international cross-functional teams.",
   ],
   de: [
     "Zertifizierte SAFe-6-CSM- und PMP-Fachkraft mit knapp 9 Jahren Berufserfahrung in agiler Führung, Management und einem technischen Hintergrund in der Softwareentwicklung. Leitung von Projektteams in skalierten agilen Umgebungen mit internationalen, funktionsübergreifenden Teams.",
