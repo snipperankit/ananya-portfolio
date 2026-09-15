@@ -100,7 +100,7 @@ export const ui = {
       close: "Close / Schließen",
     },
     home: {
-      eyebrow: "Projektmanagement-Spezialistin · RTE · Scrum Master. PRM",
+      eyebrow: "Projektmanagement-Spezialistin",
       headline:
         "Internationale Großprojekte steuern — von verlässlicher Planung bis zur messbaren Wertlieferung.",
       btnCaseStudies: "Fallstudien",
@@ -137,7 +137,7 @@ export const ui = {
     },
     about: {
       title: "Über mich",
-      role: "Projektmanagement-Spezialistin · RTE · Scrum Master. PRM",
+      role: "Projektmanagement-Spezialistin",
       visaLabel: "Visum",
       visaValue: "Niederlassungserlaubnis",
       languagesLabel: "Sprachen",
