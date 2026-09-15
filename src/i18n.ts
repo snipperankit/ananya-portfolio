@@ -23,7 +23,7 @@ export const ui = {
       close: "Close / Schließen",
     },
     home: {
-      eyebrow: "Project Management Specialist · RTE · Scrum Master. PRM",
+      eyebrow: "Project Management Specialist",
       headline:
         "Steering large-scale international projects from predictable planning to value delivery.",
       btnCaseStudies: "Case Studies & Insights",
@@ -38,15 +38,14 @@ export const ui = {
       selectedEyebrow: "Selected work",
       selectedTitle: "Case studies with outcomes",
       read: "Read →",
-      ctaTitle: "Looking for a catalyst for your Agile transformation?",
+      ctaTitle: "Looking for a catalyst in your team?",
       ctaBody: "",
       ctaButton: "Lets connect",
     },
     caseStudies: {
       eyebrow: "Portfolio",
       title: "Case Studies & Insights",
-      intro:
-        "Agile transformations, delivery improvements, and team coaching — each documented with the measurable outcome it produced.",
+      intro: "",
       readMore: "Read more →",
       skillsLabel: "Skills",
     },
@@ -59,7 +58,7 @@ export const ui = {
     },
     about: {
       title: "About me",
-      role: "Project Management Specialist · RTE · Scrum Master. PRM",
+      role: "Project Management Specialist",
       visaLabel: "Visa",
       visaValue: "Permanent Residency",
       languagesLabel: "Languages",
