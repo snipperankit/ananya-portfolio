@@ -16,55 +16,48 @@ export const experience: ExperienceEntry[] = [
   {
     period: { en: "June 2023 — Present", de: "Juni 2023 — heute" },
     role: {
-      en: "Release Train Engineer · Scrum Master · Problem Resolution Manager",
-      de: "Release Train Engineer · Scrum Master · Problem Resolution Manager",
+      en: "Project Manager - Release Train Engineer/ Scrum Master",
+      de: "Projektmanagerin - Release Train Engineer/ Scrum Master",
     },
     company: "Continental ADC GmbH → AUMOVIO (spin-off)",
     location: { en: "Ulm, Germany", de: "Ulm, Deutschland" },
-    summary: {
-      en: "Served as the Release Train Engineer and Scrum Master across 4 ADAS Radar Mercedes-Benz projects. Coordinated cross-functional, international teams of ART size of 50+ in an ASPICE-regulated environment.",
-      de: "Leitung von vier ADAS-/Radar-Projekten für Mercedes-Benz — Koordination internationaler, funktionsübergreifender Teams mit rund 50 Personen in einem ASPICE-regulierten Umfeld.",
-    },
+    summary: { en: "", de: "" },
     highlights: [
       {
-        en: "RTE for a 9-team Agile Release Train; moderated 6+ PI Planning sessions and managed cross-team dependencies to SAFe practice.",
-        de: "RTE für einen Agile Release Train mit 9 Teams; Moderation von über 6 PI-Planning-Sessions und Steuerung teamübergreifender Abhängigkeiten nach SAFe.",
+        en: "Technical project leadership as Release Train Engineer, Scrum Master, and Problem Resolution Manager (Customer: Mercedes-Benz); led PI planning and tracked critical milestones across four parallel ADAS radar projects involving approximately 50 international team members.",
+        de: "Technische Projektleitung als Release Train Engineer, Scrum Master und Problem Resolution Manager (Kunde: Mercedes-Benz); Leitung des PI Plannings und Verfolgung kritischer Meilensteine über vier parallele ADAS-Radar-Projekte mit rund 50 internationalen Teammitgliedern.",
       },
       {
-        en: "Led a globally distributed Scrum team of 12 across 5 locations; established predictable sprint deliveries.",
-        de: "Führung eines global verteilten Scrum-Teams mit 12 Mitgliedern an 5 Standorten; Etablierung planbarer Sprint-Lieferungen.",
+        en: "Managed cross-functional dependencies within release and project planning; safeguarded project objectives through early escalation and resolution of risks, impediments, and critical blockers.",
+        de: "Steuerung funktionsübergreifender Abhängigkeiten in der Release- und Projektplanung; Absicherung der Projektziele durch frühzeitige Eskalation und Auflösung von Risiken, Hindernissen und kritischen Blockern.",
       },
       {
-        en: "Designed 50+ eazyBI and Power BI dashboards for ART-wide tracking of feature completion, ticket burndown, risks and impediments.",
-        de: "Konzeption von über 50 eazyBI- und Power-BI-Dashboards für das ART-weite Tracking von Feature-Fertigstellung, Ticket-Burndown, Risiken und Hindernissen.",
+        en: "Ensured realistic feature planning through capacity and resource alignment; supported project objectives through efficient resource utilisation and adherence to budget optimisation.",
+        de: "Sicherstellung realistischer Feature-Planung durch Kapazitäts- und Ressourcenabgleich; Unterstützung der Projektziele durch effiziente Ressourcennutzung und Einhaltung der Budgetoptimierung.",
       },
       {
-        en: "Streamlined ASPICE assessment preparation (MAN.3, SWE.3, SWE.4, SUP.9) leading to successful audits.",
-        de: "Strukturierte Vorbereitung der ASPICE-Assessments (MAN.3, SWE.3, SWE.4, SUP.9) mit erfolgreichen Audits.",
+        en: "Owned problem resolution management; drove program-wide problem-report burndown and defect-resolution progress effectively across the full project lifecycle.",
+        de: "Verantwortung für das Problem Resolution Management; effektive Steuerung des programmweiten Problem-Report-Burndowns und Fortschritts der Fehlerbehebung über den gesamten Projektlebenszyklus.",
       },
       {
-        en: "Drove effective Problem Report burndown across the ART towards project milestones.",
-        de: "Effektiver Problem-Report-Burndown über den gesamten ART hinweg, ausgerichtet auf Projektmeilensteine.",
+        en: "Organised and led retrospectives, Inspect & Adapt, and problem-solving workshops; drove continuous process optimisation and coaching across the project.",
+        de: "Organisation und Leitung von Retrospektiven, Inspect-&-Adapt- und Problemlösungs-Workshops; Vorantreiben kontinuierlicher Prozessoptimierung und Coaching im gesamten Projekt.",
       },
       {
-        en: "Moderated agile ceremonies across multiple Scrum teams and established standardised ways of working.",
-        de: "Moderation agiler Zeremonien über mehrere Scrum-Teams hinweg und Etablierung standardisierter Arbeitsprozesse.",
+        en: "Monitored requirement burndown at project level in collaboration with Software Architects and Requirements Managers; ensured requirement traceability and supported feature implementation for all Customer milestones.",
+        de: "Überwachung des Requirement-Burndowns auf Projektebene in Zusammenarbeit mit Software-Architekten und Requirements Managern; Sicherstellung der Anforderungsverfolgbarkeit und Unterstützung der Feature-Umsetzung für alle Kundenmeilensteine.",
       },
       {
-        en: "Facilitated retrospectives and Inspect & Adapt workshops; coached teams on continuous improvement.",
-        de: "Durchführung von Retrospektiven und Inspect-&-Adapt-Workshops; Coaching der Teams zu kontinuierlicher Verbesserung.",
-      },
-      {
-        en: "Collaborated closely with Product Owners on backlog prioritisation, schedule analysis and user stories.",
-        de: "Enge Zusammenarbeit mit den Product Ownern bei Backlog-Priorisierung, Terminanalysen und User Stories.",
+        en: "Developed reporting structures using Jira, eazyBI and Power BI solutions; over 60 dashboards consolidated and transparently presented delivery progress metrics to support data-driven management decisions.",
+        de: "Entwicklung von Reporting-Strukturen mit Jira, eazyBI und Power BI; über 60 Dashboards konsolidierten die Lieferfortschritts-Kennzahlen und stellten sie transparent dar — als Grundlage für datenbasierte Managemententscheidungen.",
       },
     ],
   },
   {
     period: { en: "June 2022 — Apr 2023", de: "Juni 2022 — Apr. 2023" },
     role: {
-      en: "Working Student — Junior Account Manager",
-      de: "Werkstudentin — Junior Account Managerin",
+      en: "Technical Account Manager (Working Student)",
+      de: "Technical Account Manager (Werkstudentin)",
     },
     company: "financeAds International GmbH",
     location: { en: "Berlin, Germany", de: "Berlin, Deutschland" },
@@ -88,7 +81,7 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    period: { en: "Jan 2020 — Dec 2021", de: "Jan. 2020 — Dez. 2021" },
+    period: { en: "Sept 2017 — Dec 2021", de: "Sept. 2017 — Dez. 2021" },
     role: { en: "Senior Software Engineer", de: "Senior Software Engineer" },
     company: "Bosch Global Software Technologies",
     location: { en: "Bengaluru, India", de: "Bengaluru, Indien" },
@@ -108,25 +101,6 @@ export const experience: ExperienceEntry[] = [
       {
         en: "Acted as Scrum Master and mentored junior developers in SDLC processes.",
         de: "Tätigkeit als Scrum Master und Mentoring von Junior-Entwicklern in SDLC-Prozessen.",
-      },
-    ],
-  },
-  {
-    period: { en: "Sept 2017 — Jan 2020", de: "Sept. 2017 — Jan. 2020" },
-    role: {
-      en: "Associate Software Engineer",
-      de: "Associate Software Engineer",
-    },
-    company: "Bosch Global Software Technologies",
-    location: { en: "Bengaluru, India", de: "Bengaluru, Indien" },
-    summary: {
-      en: "Embedded software development for automotive braking systems (iBooster, projects 412B/403B).",
-      de: "Embedded-Softwareentwicklung für automobile Bremssysteme (iBooster, Projekte 412B/403B).",
-    },
-    highlights: [
-      {
-        en: "Independently developed the AUTOSAR Network Management feature and On-Board Diagnostics for project 403B — with direct design presentations to the customer.",
-        de: "Eigenständige Entwicklung des AUTOSAR-Network-Management-Features und der On-Board-Diagnose für Projekt 403B — mit direkten Design-Präsentationen beim Kunden.",
       },
     ],
   },
@@ -161,8 +135,8 @@ export const education: EducationEntry[] = [
     school: "GISMA University of Applied Sciences",
     location: { en: "Potsdam, Germany", de: "Potsdam, Deutschland" },
     note: {
-      en: "GPA 1.5 · Thesis: challenges a Scrum Master faces in scaling agile frameworks (SAFe, Disciplined Agile, LeSS, Spotify) in the automotive industry.",
-      de: "Note 1,5 · Thesis: Herausforderungen eines Scrum Masters in skalierten agilen Frameworks (SAFe, Disciplined Agile, LeSS, Spotify) in der Automobilindustrie.",
+      en: "GPA 1.5",
+      de: "Note 1,5",
     },
   },
   {
@@ -247,10 +221,10 @@ export const certifications: Certification[] = [
 
 export const aboutIntro: Record<Lang, string[]> = {
   en: [
-    "Certified Project Mangement Professional, with close to 9 years of work experience in Agile leadership, management, and a technical background in software development. Led project teams in large-scale environments of international cross-functional teams.",
+    "Certified Project Mangement Professional, with close to 9 years of work experience in leadership, management, and a technical background in software development. Led projects for Tier-1 customers in large-scale international setups.",
   ],
   de: [
-    "Zertifizierte Projektmanagement-Fachkraft mit knapp 9 Jahren Berufserfahrung in agiler Führung, Management und einem technischen Hintergrund in der Softwareentwicklung. Leitung von Projektteams in groß angelegten Umgebungen mit internationalen, funktionsübergreifenden Teams.",
+    "Zertifizierte Projektmanagement-Fachkraft mit knapp 9 Jahren Berufserfahrung in Führung, Management und einem technischen Hintergrund in der Softwareentwicklung. Leitung von Projekten für Tier-1-Kunden in groß angelegten internationalen Strukturen.",
   ],
 };
 
