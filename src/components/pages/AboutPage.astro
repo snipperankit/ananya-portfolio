@@ -65,7 +65,9 @@ const certsDescending = [...certifications].sort((a, b) => b.year - a.year);
               <div class="font-ui text-[12px] font-semibold uppercase tracking-[.2em] text-accent dark:text-accent-dark mb-2">{job.period[lang]}</div>
               <h3 class="font-display font-normal text-[1.4rem] md:text-[1.5rem] leading-snug">{job.role[lang]}</h3>
               <div class="font-ui text-[13px] text-ink/70 dark:text-ink-dark/70 mt-1">{job.company} · {job.location[lang]}</div>
-              <p class="font-body text-[1.1rem] md:text-[1.15rem] leading-[1.7] text-ink/85 dark:text-ink-dark/85 mt-3">{job.summary[lang]}</p>
+              {job.summary[lang] && (
+                <p class="font-body text-[1.1rem] md:text-[1.15rem] leading-[1.7] text-ink/85 dark:text-ink-dark/85 mt-3">{job.summary[lang]}</p>
+              )}
               {job.highlights.length > 0 && (
                 <ul class="mt-3 space-y-2">
                   {job.highlights.map(h => (
